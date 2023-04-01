@@ -1,0 +1,28 @@
+<div class="container">
+<h1>New Service</h1>
+
+<%= form_with(model: @service, url: services_path) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, class: "form-control" %>
+
+  <%= form.label :description %>
+  <%= form.text_area :description, class: "form-control" %>
+
+  <%= form.label :price %>
+  <%= form.number_field :price, class: "form-control" %>
+
+  <%= form.label :available_date %>
+  <%= form.date_field :available_date, class: "form-control" %>
+
+  <%= form.label :available_time %>
+  <%= form.time_field :available_time, class: "form-control" %>
+
+  <%= form.label :category_id %>
+  <%= form.collection_select :category_id, Category.all, :id, :name, prompt: true, class: "form-control" %>
+
+  <%= form.label :location_id %>
+  <%= form.collection_select :location_id, Location.all, :id, :name, prompt: true, class: "form-control" %>
+
+  <%= form.submit "Create Service", class: "btn btn-primary" %>
+<% end %>
+</div>
