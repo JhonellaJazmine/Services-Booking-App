@@ -50,7 +50,7 @@ end
 private
 
     def service_params
-        params.require(:service).permit(:name, :description, :price, :available_date, :available_time, :category_id, :location_id, :admin_id)
+        params.require(:service).permit(:name, :description, :price, available_days: [], :available_time_start, :available_time_end, :category_id, :location_id)
     end
 
     def set_service
